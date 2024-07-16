@@ -163,7 +163,7 @@ padding-bottom:-3em;
     }
 }
 
-.about {
+.about,details{
     margin-top: -0.6em;
     text-align: center;
     background-color: #33333349;
@@ -178,7 +178,7 @@ padding-bottom:-3em;
     font-size: x-large;
 }
 
-.about p{
+.about details{
     word-spacing: 3px;
     letter-spacing: 1px;
     margin: 0 auto;
