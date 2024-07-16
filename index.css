@@ -2,10 +2,7 @@
 html {
     max-width: 1900px;
     scroll-behavior: smooth;
-    font-size: medium;
-    font-family: Arial, Helvetica, sans-serif;
     background-color: gold;
-    z-index: 1;
 }
 
 body {
@@ -58,14 +55,6 @@ img {
         font-size: 1em;
         margin: 0 auto;
     }
-
-    .welcome h1,
-    button {
-        position: static;
-        margin: 10px 0;
-    }
-}
-
 header {
     margin: 0 auto;
     justify-content: center;
@@ -101,7 +90,6 @@ header {
 }
 
 .top {
-    display: flex;
     background-color: aqua;
     text-align: center;
     text-shadow: 2px 2px 5px;
@@ -160,6 +148,10 @@ header {
 .icon a:hover {
     transition: ease 0.5s;
     transform: scale(1.1);
+    color:white;
+    justify-content: center;
+    background-color: black;
+    padding: 0.6em;
 }
 
 .welcome {
