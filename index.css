@@ -1,5 +1,4 @@
 
-
 html {
     max-width: 1900px;
     scroll-behavior: smooth;
@@ -10,7 +9,7 @@ html {
 }
 
 body {
-    background-color: #fff;
+    background-color: white;
     margin:0 auto;
     padding: 0;
     min-height: 100vh;
@@ -63,25 +62,24 @@ img {
     }
 
 header {
-    background-color: rgba(30, 148, 148, 0.192);
     margin: 0 auto;
     justify-content: center;
     align-items: center;
-    padding-bottom: 0.011rem;
-    box-shadow: -0px 3px 3px;
     position: sticky;
-    border-bottom: 2px red solid;
     top: 0;
     z-index: 1;
+    paddin-bottom:-2em;
 }
 
 .top {
-    padding: 2em;
-    background-color: #fff;
-    display: flex;
+color:green;
+    display: block;
+    background-color: white;
     text-transform: uppercase;
     text-align: center;
-    text-shadow: 2px 2px 5px;
+    text-shadow: 3px 3px 5px ;
+    
+   
 }
 
 
@@ -99,48 +97,39 @@ header {
         transform: skew(1deg, -1deg) scaleY(1.2);
     }
 }
-.icon{
-    background-color: black;
-    color: aliceblue;
-}
 
 .icon {
-    
+padding-bottom:-3em;
+    overflow-x: auto;
     text-align: center;
     justify-content: center;
-    background-color: black;
-    padding: 2em 2em;
-    border-bottom: red 3px solid;
-
-    
-
+    background-color: blue;
 }
 
-.icon a{
-    scroll-x:auto;
-    border-radius: 0.43em;
-    padding: 0.53em;
-    margin: 3em;
-    color: aliceblue;
-    text-decoration: none; 
-    margin-top: 4em;
-    background-color: #333;
-    transition: ease-in-out 2s;
-    
+.icon a {
+    border-bottom:white 2px solid;
+    overflow-x: auto; 
+    scroll-behavior: smooth;
+    color: white;
+    margin: 0.6em;
+    text-decoration: none;
+    display: inline-block; 
+    white-space: nowrap;
 }
+
 .icon a:focus{
-   background-color:white;
-   color: rgb(13, 13, 14);
+  border-bottom:#080808 solid 2px;
+   color: rgb(18, 18, 29);
 
     }
 .icon a:hover {
-    
-    transform: scale(1.6);
-    background-color:white;
+    transform: scale(1);
     color: rgb(13, 13, 14);
+    border-bottom: 2px black solid;
 }
 
 .welcome {
+
     top: 0;
     margin: 0 auto;
     text-align: center;
@@ -243,12 +232,15 @@ header {
 }
 
 .proud b {
+    margin-top:1em;
+        background-color: rgba(0, 0, 255, 0.541);
     position: absolute;
     white-space: pre-wrap;
     color: yellow;
     justify-content: center;
     width: 300px;
-    margin-left: 1em;
+    margin-left: 1.5em;
+    padding-bottom:0.3em;
 }
 
 .table__time {
@@ -276,7 +268,7 @@ header {
 }
 
 .table__time table th {
-    padding: 1.5em;
+    padding: 1em;
     gap: 3em;
     font-weight: 22px;
     text-align: center;
@@ -290,8 +282,7 @@ header {
 }
 
 .table__time table td {
-    font-weight: 10;
-    padding: 0.21em;
+    font-weight: 90;
 }
 .contact{
     text-align: center;
