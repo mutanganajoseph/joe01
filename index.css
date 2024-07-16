@@ -168,13 +168,15 @@ header {
 .icon a{
     margin:2.1em;
     color: aliceblue;
-    text-decoration: none; 
     margin-top: -0.4em;
     z-index: 1;
 
 }
 .icon a:focus{
    border-bottom: #fff solid 3px;
+    background-color:white;
+    color:black;
+    border-radius:20px;
 
     }
 .icon a:hover {
