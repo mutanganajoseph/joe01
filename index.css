@@ -189,9 +189,9 @@ header {
     font-size: x-large;
 }
 
-.about p {
-    word-spacing: 2px;
-    white-space: pre-wrap;
+.about p{
+    word-spacing: 3px;
+    letter-spacing: 1px;
     margin: 0 auto;
 }
 
@@ -242,15 +242,12 @@ header {
 }
 
 .proud b {
-    text-align: left;
-    white-space: pre-wrap;
-    margin-top: 0;
-    text-align: center;
-    color: aliceblue;
-    font-weight: bold;
-    margin-bottom: -1.5em;
     position: absolute;
-    margin: 0 auto;
+    white-space: pre-wrap;
+    color: yellow;
+    justify-content: center;
+    width: 300px;
+    margin-left: 1em;
 }
 
 .table__time {
