@@ -93,20 +93,21 @@ header {
     background-color: aqua;
     text-align: center;
     text-shadow: 2px 2px 5px;
-    margin: 0 auto;
+    gap:1em;
+     text-transform: uppercase;
+
 }
 
-.top h1 {
+/*.top h1 {
     text-align: center;
-    text-transform: uppercase;
-
+   
 }
 
 .top h3 {
     justfy-content:center;
     text-align:center;
     animation: anim 4s ease-in-out forwards infinite;
-}
+}*/
 @keyframes anim {
     0% {
         transform: skew(0deg, -3deg) scaleY(0);
