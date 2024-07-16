@@ -1,6 +1,5 @@
 
-html {
-    max-width: 1900px;
+html{
     scroll-behavior: smooth;
     font-size: medium;
     font-family: Arial, Helvetica, sans-serif;
@@ -68,6 +67,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1;
+    padding-bottom:-2em;
 }
 
 .top {
@@ -133,7 +133,7 @@ padding-bottom:-3em;
     margin: 0 auto;
     text-align: center;
  justify-content: center;
- margin-bottom: -0.45em;
+ margin-bottom: -13em;
  background-color: rgba(255, 0, 64, 0.048);
 }
 
@@ -162,20 +162,21 @@ padding-bottom:-3em;
         transform: skew(10deg, -5deg) scaleY(1.2);
     }
 }
-
-.about,details{
-    margin-top: -0.6em;
+.about, details{
+    margin-top: -1.4em;
     text-align: center;
     background-color: #33333349;
     font-weight: bolder;
     padding: 2em;
+   
 }
 
 .about h1 {
     text-shadow: 2px 2px 5px;
-    padding: 1em 1em;
+    padding: 1em 2em;
     text-transform: uppercase;
     font-size: x-large;
+    margin-top: 9em;
 }
 
 .about details{
