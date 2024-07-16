@@ -117,6 +117,7 @@ header {
 }
 
 .icon a{
+    scroll-x:auto;
     border-radius: 0.43em;
     padding: 0.53em;
     margin: 3em;
@@ -290,7 +291,7 @@ header {
 
 .table__time table td {
     font-weight: 10;
-    padding: 1em;
+    padding: 0.21em;
 }
 .contact{
     text-align: center;
