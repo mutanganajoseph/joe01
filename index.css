@@ -111,11 +111,11 @@ header {
 .top h1 {
     text-align: center;
     text-transform: uppercase;
-    margin: 0 auto;
-    white-space: nowrap;
+
 }
 
 .top h3 {
+    justfy-content:center;
     text-align:center;
     animation: anim 4s ease-in-out forwards infinite;
 }
