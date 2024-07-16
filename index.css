@@ -282,6 +282,7 @@ header {
 }
 
 .proud b {
+    justfy-content:center;
     text-align: left;
     white-space: pre-wrap;
     margin-top: 0;
