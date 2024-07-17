@@ -199,7 +199,10 @@ padding-bottom:-3em;
 .food table {
     border-radius: 1em 1em 0.7em 0.7em;
 }
-
+.food th{
+    font-weight: bolder;
+    height: 3em;
+}
 .food td:last-child {
     text-align: center;
     padding: 0.2em 0.3em;
@@ -265,6 +268,7 @@ padding-bottom:-3em;
     margin: 0 auto;
     border-radius: 1.6em 1.6em 0 0;
     margin-bottom: 3em;
+    border: 2px solid white;
 }
 
 .table__time table th {
@@ -283,6 +287,7 @@ padding-bottom:-3em;
 
 .table__time table td {
     font-weight: 90;
+    height: 6em;
 }
 .contact{
     text-align: center;
