@@ -64,7 +64,6 @@ header {
     margin: 0 auto;
     justify-content: center;
     align-items: center;
-    z-index: 1;
     padding-bottom:-2em;
 }
 
@@ -95,7 +94,7 @@ color:green;
 }
 
 .icon {
-padding-bottom:-3em;
+    padding-bottom:-3em;
     z-index: 1;
     overflow-x: auto;
     text-align: center;
