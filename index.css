@@ -64,7 +64,7 @@ header {
     margin: 0 auto;
     justify-content: center;
     align-items: center;
-    position: sticky;
+    
     top: 0;
     z-index: 1;
     padding-bottom:-2em;
@@ -102,6 +102,7 @@ padding-bottom:-3em;
     text-align: center;
     justify-content: center;
     background-color: blue;
+    position:sticky;
 }
 
 .icon a {
