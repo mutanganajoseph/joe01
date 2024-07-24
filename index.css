@@ -64,8 +64,6 @@ header {
     margin: 0 auto;
     justify-content: center;
     align-items: center;
-    
-    top: 0;
     z-index: 1;
     padding-bottom:-2em;
 }
@@ -98,11 +96,13 @@ color:green;
 
 .icon {
 padding-bottom:-3em;
+    z-index: 1;
     overflow-x: auto;
     text-align: center;
     justify-content: center;
     background-color: blue;
     position:sticky;
+    top:0;
 }
 
 .icon a {
