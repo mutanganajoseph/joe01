@@ -94,20 +94,19 @@ color:green;
 }
 
 .icon {
-    padding-bottom:-3em;
+    position: sticky;
+    top: 0;
     z-index: 1;
-    overflow-x: auto;
+
     text-align: center;
     justify-content: center;
     background-color: blue;
-    position:sticky;
-    top:0;
+    padding-bottom:-3em;
+    
 }
 
 .icon a {
-    border-bottom:white 2px solid;
-    overflow-x: auto; 
-    scroll-behavior: smooth;
+    border-bottom:white 2px solid; 
     color: white;
     margin: 0.6em;
     text-decoration: none;
