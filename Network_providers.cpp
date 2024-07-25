@@ -573,7 +573,7 @@ void airtel_airtime(){
 
 int main(){
    Network_providers open;
-   //open.timer();
+   open.timer();
    open.Action();
    
   
