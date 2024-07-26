@@ -22,37 +22,7 @@ img {
     justify-content: center;
 }
 
-    .bar,
-    .top,
-    .icon,
-    .about,
-    .food,
-    .table__time,
-    .contact,
-    .copy,
-    button {
-        padding: 10px;
-        text-align: center;
-    }
-
-    .bar b,
-    .top h1,
-    .top h2,
-    .top h3,
-    .welcome h1,
-    .about h1,
-    .about p,
-    .food table th h1,
-    .quote h1,
-    .proud b,
-    .table__time table th,
-    .table__time table td,
-    .contact a,
-    .copy,
-    button a {
-        font-size: 1em;
-        margin: 0 auto;
-    }
+ 
 
     .welcome h1,
     button {
@@ -61,6 +31,8 @@ img {
     }
 
 header {
+     padding: 10px;
+        text-align: center;
     margin: 0 auto;
     justify-content: center;
     align-items: center;
