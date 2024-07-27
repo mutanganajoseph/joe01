@@ -4,7 +4,8 @@
 #include <chrono>
 #include <thread>
 #include <cstdlib>
-#include <algorithm>
+#include <algorithm> 
+#include <iomanip>
 
 using namespace std;
 string toUpperCase(const string& str) {
@@ -30,6 +31,9 @@ string number,choice;
 
  time_t joe =time(0);
    char* currentTime = ctime(&joe);
+
+time_t now=time(0);
+ tm* localTime= localtime(&now);
 
 
 void timer(){
@@ -86,12 +90,15 @@ void wait_timer(){
          if(second ==0){
             cout<<"\nUSSD code running...\n";
             
+            
          }
       else if(second ==1){
-         system("clear");
       cout<<"";
+       system("clear");
       break;
+      
     }
+   
     second++;
       this_thread::sleep_for(chrono::seconds(1));
    }
@@ -100,7 +107,8 @@ void wait_timer(){
 
 void exit(){
     while(true){
-      cout<<"\nExiting... \n\n> ";
+       wait_timer();
+      cout<<"\nExiting... \n\n ";
       break;
       }
       }
@@ -111,21 +119,19 @@ void exit(){
 void Sim() {
    
     // Get input for SIM cards
-    cout<< "\n\nNo SIM card detected. Please insert SIM cards.\n\nEnter SIM One as MTN or Airtel: \n\n> ";
+    cout<< "\n\n                          No SIM card detected. Please insert SIM cards.\n\n                                   Enter SIM One as MTN or Airtel: \n\n> ";
     cin >> sim1;
     system ("clear");
      wait_timer();
-    cout << "Enter SIM Two as MTN or Airtel: \n\n> ";
+    cout << "                                 Enter SIM Two as MTN or Airtel: \n\n> ";
     cin >> sim2;
     system ("clear");
     // Convert input to uppercase
     sim1 = toUpperCase(sim1);
     sim2 = toUpperCase(sim2);
 
-    // Clear screen (depends on system)
-    system("clear"); // On Windows, use system("cls");
-
-    // Set Sim_mt and Sim_air based on valid inputs
+    
+    system("clear"); 
     if (sim1 == "MTN") {
         Sim_mt = sim1;
     } else if (sim1 == "AIRTEL") {
@@ -144,12 +150,6 @@ void Sim() {
     // Check if one or both SIM cards are invalid
     if (validSim1 && !validSim2) {
     
-       //cout << "Only one SIM is valid.\n\n";
-       // cout << "1. " << sim1 << "\n\n";
-               // timer();
-        //if (Sim_mt == "MTN") sim_mtn();
-        
-        //if (Sim_air == "AIRTEL") sim_airtel();
         if(sim1 == Sim_mt){
          wait_timer();
         cout << "Only MTN SIM is valid.\n\n";
@@ -194,7 +194,8 @@ void Sim() {
     system("clear");
     wait_timer();
    
-        cout << "Both SIM cards are invalid.\n\n";
+        cout << "Both SIM cards are invalid. at " <<put_time(localTime, "%H:%M:%S")<<"\n\n1."<<sim1<<"\n2."<<sim2<<"\n\n";
+
         
         Sim();
     } else { // Both SIMs are valid
@@ -219,7 +220,7 @@ void Sim() {
             cout << "\n          SIM ARE PLACE AS \n\n            1."<<sim1<<"\n            2."<<sim2<<"\n\n";
             
             timer();
-             
+            
             sim_airtel_mtn();
             
             
@@ -245,14 +246,14 @@ void sim_airtel() {
    
    cout << "\n> ";
    cin >> choice;
-   
+   system("clear");
    if (choice == "*182#") {
-      system("clear");
+      
       wait_timer();
       airtel_prompt();
    }
    else if (choice == "*131#") {
-      system("clear");
+      
       wait_timer();
       airtel_airtime();
    }
@@ -268,14 +269,14 @@ void sim_mtn() {
    
    cout << "\n> ";
    cin >> choice;
-   
+   system("clear");
    if (choice == "*182#") {
       system("clear");
       wait_timer();
       mtn_prompt(); 
    }
    else if (choice == "*131#") {
-      system("clear");
+     
       wait_timer();
       mtn_airtime();    
    }
@@ -289,20 +290,20 @@ void sim_mtn() {
 void sim_airtel_mtn() {
    cout << "\n> ";
    cin >> choice;
-   
-   if (choice == "*182#") {
-      system("clear");
+  system("clear");
       wait_timer();
+   if (choice == "*182#") {
+      
       cout << "\n\n";
       cout << "\n1." << sim1 << "\n2." << sim2 << "\n\n> ";
       cin >> choice;
-      
+      system("clear");
       if (choice == "1") {
          wait_timer();  
          airtel_prompt();
       }
       else if (choice == "2") {
-         system("clear");
+         
          wait_timer();
          mtn_prompt();
       }
@@ -310,6 +311,7 @@ void sim_airtel_mtn() {
          system("clear");
          wait_timer();
          cout << "\nWrong Choice!\n\n";
+         sim_airtel_mtn();
       }
    }
    else if (choice == "*131#") {
@@ -318,16 +320,16 @@ void sim_airtel_mtn() {
       cout << "\n\n";
       cout << "\n\n1." << sim1 << "\n2." << sim2 << "\n\n> ";
       cin >> choice;
-
+       system("clear");
       if (choice == "1") {
          cout << "\n";
-         system("clear");
+         
          wait_timer();
          airtel_airtime();
       }
       else if (choice == "2") {
          cout << "\n";
-         system("clear");
+         
          wait_timer();
          mtn_airtime();
       }
@@ -338,7 +340,7 @@ void sim_airtel_mtn() {
       }
    }
    else {
-      system("clear");
+     
       wait_timer();
       cout << "\nUNKNOWN APPLICATION!\n\n";
    }
@@ -348,10 +350,10 @@ void sim_airtel_mtn() {
 //while all sim1 and sim2 is mtn
 void sim_mtn_mtn() {
    float sim_mtn_balance=200;
-    system("clear");
+    
    cout << "\n> ";
    cin >> choice;
-   
+   system("clear");
    if (choice == "*182#") {
       system("clear");
       wait_timer();
@@ -359,9 +361,9 @@ void sim_mtn_mtn() {
       cout << "\n1." << sim1 << "\n2." << sim2 << "\n\n> ";
       cin >> choice;
        system("clear");
-       wait_timer();  
+       
       if (choice == "1") {
-          
+         wait_timer(); 
          mtn_prompt();
       }
       else if (choice == "2") {
@@ -371,6 +373,7 @@ void sim_mtn_mtn() {
       else {
          wait_timer();
          cout << "\nWrong Choice!\n\n";
+         sim_mtn_mtn();
       }
    }
    else if (choice == "*131#") {
@@ -380,21 +383,24 @@ void sim_mtn_mtn() {
       cout << "\n\n1." << sim1 << "\n2." << sim2 << "\n\n> ";
       cin >> choice;
        system("clear");
-        wait_timer();
+        
       if (choice == "1") {
          cout << "\n";
-        
+        wait_timer();
          mtn_airtime();
       }
       else if (choice == "2") {
+         system("clear");
           wait_timer();
          cout << "\n";
         
          cout<<"MTN airtime is " <<sim_mtn_balance<<"FRW.\n\n";
       }
       else {
+         system("clear");
          wait_timer();
-         cout << "\nWrong choice!\n\n";
+         cout << "\nWrong choice! Type *182# OR *131#\n\n";
+         sim_mtn_mtn();
       }
    }
    else {
@@ -408,17 +414,18 @@ void sim_airtel_airtel() {
     system("clear");
    cout << "\n> ";
    cin >> choice;
-   
+   system("clear");
    if (choice == "*182#") {
       system("clear");
-      wait_timer();
+     
       cout << "\n\n";
       cout << "\n1." << sim1 << "\n2." << sim2 << "\n\n> ";
       cin >> choice;
        system("clear");
-       wait_timer();
+      
+      
       if (choice == "1") {
-            
+          wait_timer();   
          airtel_prompt();
       }
       else if (choice == "2") {
@@ -426,6 +433,7 @@ void sim_airtel_airtel() {
          airtel_prompt();
       }
       else {
+         system("clear");
          wait_timer();
          cout << "\nWrong Choice!\n\n";
       }
@@ -437,10 +445,10 @@ void sim_airtel_airtel() {
       cout << "\n\n1." << sim1 << "\n2." << sim2 << "\n\n> ";
       cin >> choice;
         system("clear");
-        wait_timer();
+       
       if (choice == "1") {
          cout << "\n";
-         
+          wait_timer();
          airtel_airtime();
       }
       else if (choice == "2") {
@@ -449,8 +457,10 @@ void sim_airtel_airtel() {
          cout<<"Airtel Airtime balance is " << sim_airtel_balance<<"FRW.\n\n";
       }
       else {
+         system("clear");
          wait_timer();
-         cout << "\nWrong choice!\n\n";
+         cout << "\nWrong choice! Type *182# OR *131#\n\n";
+         sim_airtel_airtel();
       }
    }
    else {
@@ -464,14 +474,13 @@ void sim_airtel_airtel() {
 void sim_mtn_airtel() {
    cout << "\n> ";
    cin >> choice;
-   
+   system("clear");
    if (choice == "*182#") {
-      system("clear");
       wait_timer();
       cout << "\n\n";
       cout << "\n1." << sim1 << "\n2." << sim2 << "\n\n> ";
       cin >> choice;
-      
+      system("clear");
       if (choice == "1") {
          wait_timer();   
          mtn_prompt();
@@ -481,17 +490,18 @@ void sim_mtn_airtel() {
          airtel_prompt();
       }
       else {
+         system("clear");
          wait_timer();
          cout << "\nWrong Choice!\n\n";
       }
    }
    else if (choice == "*131#") {
       system("clear");
-      wait_timer();
+      
       cout << "\n\n";
       cout << "\n\n1." << sim1 << "\n2." << sim2 << "\n\n> ";
       cin >> choice;
-
+      system("clear");
       if (choice == "1") {
          cout << "\n";
          wait_timer();
@@ -503,6 +513,7 @@ void sim_mtn_airtel() {
          airtel_airtime();
       }
       else {
+         system("clear");
          wait_timer();
          cout << "\nWrong choice!\n\n";
       }
@@ -514,11 +525,10 @@ void sim_mtn_airtel() {
 }
 
 void mtn_prompt(){
-system("clear");
  
-     int count=0;
+   int count=0;
     
-    wait_timer();
+    
    cout<<"\n1.Send Money\n2.Buy\n3.Bank\n4.Others\n5.My account\n6.Stop\n7.Next\n\n> ";
    cin>>choice;
    system("clear");
@@ -528,13 +538,18 @@ system("clear");
    }
     
     else if(choice=="2"){
-     
+      wait_timer();
       cout<<"\nMTN reserved Buy\n\n00.Back\n\n> ";
       cin>>choice;
+      system("clear");
       if(choice=="00"){
+         
+         wait_timer();
          mtn_prompt();
       }
       else{
+         system("clear");
+         wait_timer();
          cout<<"\nWrong choice!\n\n";
         
       }
@@ -542,26 +557,36 @@ system("clear");
    
    
    else if(choice=="3"){
-      cout<<"\nMTN reserved Bank\n\n00.Back\n\n>";
+       wait_timer();
+      cout<<"\nMTN reserved Bank\n\n00.Back\n\n> ";
       cin>>choice;
+      system("clear");
       if(choice=="00")
       {
+         wait_timer();
          mtn_prompt();
       }
        else{
+         system("clear");
+         wait_timer();
          cout<<"\nWrong choice!\n\n";
       }
    }
    
    
     else if(choice=="4"){
+       wait_timer();
       cout<<"\nMTN reserved others\n\n00.Back\n\n> ";
       cin>>choice;
       if(choice=="00")
       {
+         system("clear");
+         wait_timer();
          mtn_prompt();
       }
        else{
+         system("clear");
+          wait_timer();
          cout<<"\nWrong choice!\n\n";
          
       }
@@ -569,14 +594,20 @@ system("clear");
    
    
    else if(choice=="5"){
+       wait_timer();
       cout<<"\nMTN reserved my Account\n\n00.Back\n\n> ";
       cin>>choice;
       if(choice=="00")
       {
+         system("clear");
+         wait_timer();
          mtn_prompt();
       }
        else{
+         system("clear");
+          wait_timer();
          cout<<"\nWrong choice!\n\n";
+
       }
    } 
  else if(choice=="6"){
@@ -586,6 +617,8 @@ system("clear");
       mtn_next();
    }
 else{ 
+    system("clear");
+     wait_timer();
       cout<<"\nWrong Choice! Try again!\n\n";
       mtn_prompt();
       
@@ -596,12 +629,13 @@ else{
 
 void mtn_next(){
   
-   
+   wait_timer();
    cout<<"\n8.MoMo Paye\n9.Insurance\n10.Macye Macye\n11.Back\n12.Eixt\n\n> ";
    cin>>choice;
     system("clear");
     wait_timer();
      if(choice=="8"){
+       wait_timer();
       cout<<"\nMTN reserved MoMo Paye\n\n0.Back\n99.choice\n\n> ";
       cin>>choice;
       if(choice=="0")
@@ -614,12 +648,14 @@ void mtn_next(){
          mtn_prompt();
       }
        else{
+         wait_timer();
          cout<<"\nWrong Choice!\n\n";
+        
 
       }
    } 
     else if(choice=="99"){
-       
+        wait_timer();
       cout<<"\nMTN reserved Insurance\n\n0.Back\n99.choice\n\n> ";
       cin>>choice;
      system("clear");
@@ -631,11 +667,13 @@ void mtn_next(){
          mtn_prompt();
       }
        else{
+          wait_timer();
          cout<<"\nWrong Choice!\n\n";
           }
        }
 
  else if(choice=="10"){
+    wait_timer();
       cout<<"\nMTN reserved Macye Macye\n\n0.Back\n99.Menu\n\n> ";
       cin>>choice;
       system("clear");
@@ -647,6 +685,7 @@ void mtn_next(){
          mtn_prompt();
       }
       else{
+          wait_timer();
          cout<<"\nWrong choice.\n\n";
 
       }
@@ -665,7 +704,7 @@ void mtn_next(){
 }
 
 void mtn_send_money() {
-
+     wait_timer();
    cout<<"\n1.MoMo user\n2.Send to Ekash\n3.International Remittances\n4.Exit\n00.Back\n\n> ";
     cin >> choice;
      system("clear");
@@ -677,6 +716,7 @@ void mtn_send_money() {
       
 
     else if (choice == "2") {
+       wait_timer();
         cout << "\nMTN reserved Ekash\n\n0.Back\n\n> ";
         cin>>choice;
         system("clear");
@@ -685,11 +725,13 @@ void mtn_send_money() {
           mtn_send_money(); 
     }
     else {
+       wait_timer();
         cout << "\n\nWrong choice. Try again!\n\n";
         mtn_send_money();
     }
     }
     else if (choice == "3") {
+       wait_timer();
         cout << "\nMTN reserved International Remittances\n\n0.Back\n\n> ";
         cin>>choice;
         system("clear");
@@ -698,6 +740,7 @@ void mtn_send_money() {
         mtn_send_money(); 
     }
     else {
+       wait_timer();
         cout << "\n\nWrong choice. Try again!\n\n";
         mtn_send_money();
     }
@@ -709,6 +752,7 @@ void mtn_send_money() {
         mtn_prompt(); 
     }
     else {
+       wait_timer();
         cout << "\n\nWrong choice. Try again!\n\n";
         mtn_send_money();
     }
@@ -717,11 +761,13 @@ void mtn_send_money() {
 
 
 void mtn_recipient(){
+    wait_timer();
    cout << "\nEnter recipient 07*******\n\n> ";
         cin >> number;
          system("clear");
          wait_timer();
          if (number.length() != 10 || (number.substr(0, 3) != "078" && number.substr(0, 3) != "079")){
+             wait_timer();
             cout << "\nRecipient not found!\n" << endl; 
             mtn_recipient();
         
@@ -784,6 +830,7 @@ void MoMo_amount() {
 void mtn_pin(){
    string pin;
    string confirm_pin;
+    wait_timer();
    cout<<"\nEnter your MoMo Pin to confirm transaction.\n\n> ";
       cin>>pin;  
       
@@ -801,7 +848,7 @@ if(pin.length() !=5 )
        
    }
    
-
+ wait_timer();
    cout<<"\nConfirm Pin\n\n>";
   cin>>confirm_pin;
     system("clear");
@@ -832,74 +879,101 @@ if(pin.length() !=5 )
 void airtel_prompt(){
    int count=0;
 
- system("clear");
- wait_timer();
-cout<<"\n\n1.Send\n2.Buy\n3.Bank\n4.Others\n5.My account\n6.Stop\n\n>";
+ 
+ 
+cout<<"\n\n1.Send\n2.Buy\n3.Bank\n4.Others\n5.My account\n6.Stop\n\n> ";
    cin>>choice;
   system("clear");
  if(choice=="1"){
-      cout<<"\nAirtel reserved Send\n\n00.Back\n\n>";
+    wait_timer();
+    system("clear");
+      cout<<"\nAirtel reserved Send\n\n00.Back\n\n> ";
       cin>>choice;
       if(choice=="00")
       {
+         system("clear");
+         wait_timer();
          airtel_prompt();
       }
-      else{ 
+      else{
+         system("clear");
+          wait_timer(); 
       cout<<"\nWrong Choice! Try again!\n\n";
    }
    }
     
     else if(choice=="2"){
-      cout<<"\nAirtel  reserved Buy\n\n00.Back\n\n>";
+       wait_timer();
+      cout<<"\nAirtel  reserved Buy\n\n00.Back\n\n> ";
       cin>>choice;
       
       if(choice=="00")
-      {
+      { 
+         system("clear");
+         wait_timer();
          airtel_prompt();
       }
       else{ 
+         system("clear");
+          wait_timer();
       cout<<"\nWrong Choice! Try again!\n\n";
    }
    } 
    
    
    else if(choice=="3"){
-      cout<<"\nAritel reserved Bank \n\n00.Back\n\n>";
+       wait_timer();
+      cout<<"\nAritel reserved Bank \n\n00.Back\n\n> ";
       cin>>choice;
-     
+     system("clear");
       if(choice=="00")
-      {
+      
+      { 
+         system("clear");
+           wait_timer();
          airtel_prompt();
       }
       else{ 
+         system("clear");
+          wait_timer();
       cout<<"\nWrong Choice! Try again!\n\n";
    }
    }
    
    
     else if(choice=="4"){
-      cout<<"\nAirtel reserved others\n\n00.Back \n\n>";
+       wait_timer();
+      cout<<"\nAirtel reserved others\n\n00.Back \n\n> ";
       cin>>choice;
       
       if(choice=="00")
-      {
+      {system("clear");
+           wait_timer();
          airtel_prompt();
       }
       else{ 
+         system("clear");
+          wait_timer();
       cout<<"\nWrong Choice! Try again!\n\n";
    }
    } 
    
    
    else if(choice=="5"){
-      cout<<"\nAirtel reserved my account\n\n00.Back\n\n>";
+      system("clear");
+       wait_timer();
+      cout<<"\nAirtel reserved my account\n\n00.Back\n\n> ";
       cin>>choice;
-    
+      system("clear");
       if(choice=="00")
       {
+         system("clear");
+          wait_timer();
          airtel_prompt();
       }
       else{ 
+         system("clear");
+          wait_timer();
       cout<<"\nWrong Choice! Try again!\n\n";
       
    }
@@ -910,6 +984,8 @@ cout<<"\n\n1.Send\n2.Buy\n3.Bank\n4.Others\n5.My account\n6.Stop\n\n>";
        }
 
     else{
+      system("clear");
+     wait_timer();
       cout<<"\nWrong choice. Try Again!\n\n";
       airtel_prompt();
    }
@@ -939,6 +1015,7 @@ void airtel_airtime(){
 
 int main(){
    Network_providers open;
+   system("clear");
      open.Sim();
   
 }
