@@ -4,15 +4,27 @@
 #include <chrono>
 #include <thread>
 #include <cstdlib>
+#include <algorithm>
 
 using namespace std;
+string toUpperCase(const string& str) {
+    string upperStr = str;
+    transform(upperStr.begin(), upperStr.end(), upperStr.begin(), ::toupper);
+    return upperStr;
+    string sim1, sim2;
+    string Sim_mt, Sim_air;
+    
+}
 
 
 class Network_providers{
 public:
 
+    string sim1, sim2;
+    string Sim_mt, Sim_air;
 
 int count=0;
+float mtn_airtime_balance, airtel_airtime_balance;
 float MoMo_account=7500, amount=0,fee=0;
 string number,choice;
 
@@ -21,37 +33,39 @@ string number,choice;
 
 
 void timer(){
-   system("clear");
- int second = 0;
+   
+ float second = 0;
 
     // Infinite loop to count seconds
     while (true) {
       
         // Display the corresponding word based on 'second'
-        if(second ==0){
+        if(second ==3){
          system("clear");
          cout<<"\n\n\n";
-         cout<<"\n  WELCOME TO NETWORK PROVIDERS, PROGRAM WILL START IN TEN SECONDS!\n\n\n";
+         cout<<"\n                              WELCOME TO NETWORK PROVIDERS.\n\n\n";
         }
-        else if (second == 3) {
+        else if (second == 5) {
          system("clear");
          cout<<"\n\n\n";
-            cout << "                           YOU GONNA TYPE *182# OR *131#.\n" << endl;
-        } else if (second == 5) {
+            cout << "                           YOU MUST TYPE *182# OR *131#.\n" << endl;
+        } else if (second == 8) {
          system("clear");
          cout<<"\n\n\n";
             cout << "                           THEN FOLLOW PROMPT.\n" << endl;
-        } else if (second == 7) {
+        } else if (second == 10) {
          system("clear");
          cout<<"\n\n\n";
             cout << "                           ENJOY YOUR TIME WITH NETWORK PROVIDERS!\n" << endl;
         }
-        else if(second ==9){
+        else if(second ==11){
          system("clear");
           cout<<"\n\n\n";
          cout<<"                         GET READY!\n" <<endl;
+         
         }
-        else if(second ==10){
+        else if(second ==12){
+         system("clear");
          break;
         }
 
@@ -86,70 +100,418 @@ void wait_timer(){
 
 void exit(){
     while(true){
-      cout<<"\nExiting...\n\n> ";
+      cout<<"\nExiting... \n\n> ";
       break;
       }
       }
 
 
 
-void Action(){
 
-   system("clear");
-   int count=0;
+void Sim() {
    
-   float mtn_airtime_balance, airtel_airtime_balance;
+    // Get input for SIM cards
+    cout<< "\n\nNo SIM card detected. Please insert SIM cards.\n\nEnter SIM One as MTN or Airtel: \n\n> ";
+    cin >> sim1;
+    system ("clear");
+     wait_timer();
+    cout << "Enter SIM Two as MTN or Airtel: \n\n> ";
+    cin >> sim2;
+    system ("clear");
+    // Convert input to uppercase
+    sim1 = toUpperCase(sim1);
+    sim2 = toUpperCase(sim2);
 
-   cout<<"\n> ";
-   cin >>choice;
-   if(choice=="*182#"){
-         system("clear");
-       cout<<"\n\n";
-      cout<<"1.MTN\n2.Airtel\n\n> ";
-      cin>>choice;
-      
-      if(choice=="1"){
-         
-      mtn_prompt();
-      
+    // Clear screen (depends on system)
+    system("clear"); // On Windows, use system("cls");
+
+    // Set Sim_mt and Sim_air based on valid inputs
+    if (sim1 == "MTN") {
+        Sim_mt = sim1;
+    } else if (sim1 == "AIRTEL") {
+        Sim_air = sim1;
+    }
+
+    if (sim2 == "MTN") {
+        Sim_mt = sim2;
+    } else if (sim2 == "AIRTEL") {
+        Sim_air = sim2;
+    }
+
+    bool validSim1 = (sim1 == "MTN" || sim1 == "AIRTEL");
+    bool validSim2 = (sim2 == "MTN" || sim2 == "AIRTEL");
+
+    // Check if one or both SIM cards are invalid
+    if (validSim1 && !validSim2) {
+    
+       //cout << "Only one SIM is valid.\n\n";
+       // cout << "1. " << sim1 << "\n\n";
+               // timer();
+        //if (Sim_mt == "MTN") sim_mtn();
+        
+        //if (Sim_air == "AIRTEL") sim_airtel();
+        if(sim1 == Sim_mt){
+         wait_timer();
+        cout << "Only MTN SIM is valid.\n\n";
+        cout << "1." << sim1 << "\n\n";
+                timer();
+               sim_mtn();
+               }
+        
+        else{
+         wait_timer();
+          cout << "Only AIRTEL SIM is valid.\n\n";
+          cout << "1. " << sim1 << "\n\n"; 
+          timer();
+          sim_airtel();
       }
-      else if(choice=="2"){
+        
+    } 
+    else if (!validSim1 && validSim2) {
+      
+      if(sim2 == Sim_air){
+          system("clear");
+         wait_timer();
+        cout << "Only Airtel SIM is valid.\n\n";
+        cout << "1." << sim2 << "\n\n";
+              timer();
+               sim_airtel();
+               }
+        
+      else{
+         
+         wait_timer();
+          cout << "Only MTN SIM is valid.\n\n";
+          cout << "1." << sim2 << "\n\n"; 
+          timer();
+           sim_mtn();
+      }
+      
+        
+    } 
+    
+    else if (!validSim1 && !validSim2) {
+    system("clear");
+    wait_timer();
+   
+        cout << "Both SIM cards are invalid.\n\n";
+        
+        Sim();
+    } else { // Both SIMs are valid
+        if (sim1 == sim2) {
+           system ("clear");
+            wait_timer();
+            cout << "Both SIMs are the same.\n\n";
+            if(sim1 == Sim_mt){     
+            cout << "  You are using MTN only\n\n1. " << sim1 << "\n2. " << sim2 << "\n\n";
+               timer();
+               sim_mtn_mtn();
+            }
+            else{
+               wait_timer();
+               cout<<" You are using AIRTEL only\n\n1. " << sim1 << "\n2. " << sim2 << "\n\n";
+               timer();
+               sim_airtel_airtel();
+            }
+                   
+        } else if (sim1 == "AIRTEL" && sim2 == "MTN") {
+             wait_timer();
+            cout << "\n          SIM ARE PLACE AS \n\n            1."<<sim1<<"\n            2."<<sim2<<"\n\n";
+            
+            timer();
+             
+            sim_airtel_mtn();
+            
+            
+        } else {
+         system("clear");
+         wait_timer();
+            cout << "\n                SIM ARE PLACED AS: \n\n            1."<<sim1<<"\n            2."<<sim2<<"\n\n"; 
+             timer();
+             system("clear");
+            sim_mtn_airtel();
+           
+        }
+
+      
+    }}
+
+
+
+
+
+//while airtel is only valid sim
+void sim_airtel() {
+   
+   cout << "\n> ";
+   cin >> choice;
+   
+   if (choice == "*182#") {
+      system("clear");
+      wait_timer();
+      airtel_prompt();
+   }
+   else if (choice == "*131#") {
+      system("clear");
+      wait_timer();
+      airtel_airtime();
+   }
+   else {
+      system("clear");
+      wait_timer();
+      cout << "\nUNKNOWN APPLICATION!\n\n";
+   } // <- Added this closing curly brace
+}
+
+void sim_mtn() {
+   int count = 0;
+   
+   cout << "\n> ";
+   cin >> choice;
+   
+   if (choice == "*182#") {
+      system("clear");
+      wait_timer();
+      mtn_prompt(); 
+   }
+   else if (choice == "*131#") {
+      system("clear");
+      wait_timer();
+      mtn_airtime();    
+   }
+   else {
+      system("clear");
+      wait_timer();
+      cout << "\nUNKNOWN APPLICATION!\n\n";
+   } // <- Added this closing curly brace
+}
+
+void sim_airtel_mtn() {
+   cout << "\n> ";
+   cin >> choice;
+   
+   if (choice == "*182#") {
+      system("clear");
+      wait_timer();
+      cout << "\n\n";
+      cout << "\n1." << sim1 << "\n2." << sim2 << "\n\n> ";
+      cin >> choice;
+      
+      if (choice == "1") {
+         wait_timer();  
          airtel_prompt();
       }
-      else{
-         cout<<"\nWrong Choice!\n\n";
+      else if (choice == "2") {
+         system("clear");
+         wait_timer();
+         mtn_prompt();
+      }
+      else {
+         system("clear");
+         wait_timer();
+         cout << "\nWrong Choice!\n\n";
       }
    }
+   else if (choice == "*131#") {
+      system("clear");
+      wait_timer();
+      cout << "\n\n";
+      cout << "\n\n1." << sim1 << "\n2." << sim2 << "\n\n> ";
+      cin >> choice;
 
-
-   else if(choice=="*131#"){
+      if (choice == "1") {
+         cout << "\n";
          system("clear");
-      cout<<"\n\n";
-      cout<<"1.MTN\n2.Airtel\n\n> ";
-      cin>>choice;
-
-      if(choice=="1"){
-         cout<<"\n";
-         mtn_airtime();
-         
-      }
-      else if(choice=="2"){
-         cout<<"\n";
+         wait_timer();
          airtel_airtime();
       }
-      else{
-         
-         cout<<"\nWrong choice!\n\n";
+      else if (choice == "2") {
+         cout << "\n";
+         system("clear");
+         wait_timer();
+         mtn_airtime();
+      }
+      else {
+         system("clear");
+         wait_timer();
+         cout << "\nWrong choice!\n\n";
       }
    }
-
-
-   else{
-      cout<<"\nUNKNOWN APPLICATION!\n\n";
+   else {
+      system("clear");
+      wait_timer();
+      cout << "\nUNKNOWN APPLICATION!\n\n";
    }
 }
 
 
+//while all sim1 and sim2 is mtn
+void sim_mtn_mtn() {
+   float sim_mtn_balance=200;
+    system("clear");
+   cout << "\n> ";
+   cin >> choice;
+   
+   if (choice == "*182#") {
+      system("clear");
+      wait_timer();
+      cout << "\n\n";
+      cout << "\n1." << sim1 << "\n2." << sim2 << "\n\n> ";
+      cin >> choice;
+       system("clear");
+       wait_timer();  
+      if (choice == "1") {
+          
+         mtn_prompt();
+      }
+      else if (choice == "2") {
+         wait_timer();
+         mtn_prompt();
+      }
+      else {
+         wait_timer();
+         cout << "\nWrong Choice!\n\n";
+      }
+   }
+   else if (choice == "*131#") {
+      system("clear");
+      wait_timer();
+      cout << "\n\n";
+      cout << "\n\n1." << sim1 << "\n2." << sim2 << "\n\n> ";
+      cin >> choice;
+       system("clear");
+        wait_timer();
+      if (choice == "1") {
+         cout << "\n";
+        
+         mtn_airtime();
+      }
+      else if (choice == "2") {
+          wait_timer();
+         cout << "\n";
+        
+         cout<<"MTN airtime is " <<sim_mtn_balance<<"FRW.\n\n";
+      }
+      else {
+         wait_timer();
+         cout << "\nWrong choice!\n\n";
+      }
+   }
+   else {
+      wait_timer();
+      cout << "\nUNKNOWN APPLICATION!\n\n";
+   }
+}
+
+void sim_airtel_airtel() {
+   float sim_airtel_balance=300;
+    system("clear");
+   cout << "\n> ";
+   cin >> choice;
+   
+   if (choice == "*182#") {
+      system("clear");
+      wait_timer();
+      cout << "\n\n";
+      cout << "\n1." << sim1 << "\n2." << sim2 << "\n\n> ";
+      cin >> choice;
+       system("clear");
+       wait_timer();
+      if (choice == "1") {
+            
+         airtel_prompt();
+      }
+      else if (choice == "2") {
+         wait_timer();
+         airtel_prompt();
+      }
+      else {
+         wait_timer();
+         cout << "\nWrong Choice!\n\n";
+      }
+   }
+   else if (choice == "*131#") {
+      system("clear");
+      wait_timer();
+      cout << "\n\n";
+      cout << "\n\n1." << sim1 << "\n2." << sim2 << "\n\n> ";
+      cin >> choice;
+        system("clear");
+        wait_timer();
+      if (choice == "1") {
+         cout << "\n";
+         
+         airtel_airtime();
+      }
+      else if (choice == "2") {
+         cout << "\n";
+         wait_timer();
+         cout<<"Airtel Airtime balance is " << sim_airtel_balance<<"FRW.\n\n";
+      }
+      else {
+         wait_timer();
+         cout << "\nWrong choice!\n\n";
+      }
+   }
+   else {
+      wait_timer();
+      cout << "\nUNKNOWN APPLICATION!\n\n";
+   }
+}
+
+
+
+void sim_mtn_airtel() {
+   cout << "\n> ";
+   cin >> choice;
+   
+   if (choice == "*182#") {
+      system("clear");
+      wait_timer();
+      cout << "\n\n";
+      cout << "\n1." << sim1 << "\n2." << sim2 << "\n\n> ";
+      cin >> choice;
+      
+      if (choice == "1") {
+         wait_timer();   
+         mtn_prompt();
+      }
+      else if (choice == "2") {
+         wait_timer();
+         airtel_prompt();
+      }
+      else {
+         wait_timer();
+         cout << "\nWrong Choice!\n\n";
+      }
+   }
+   else if (choice == "*131#") {
+      system("clear");
+      wait_timer();
+      cout << "\n\n";
+      cout << "\n\n1." << sim1 << "\n2." << sim2 << "\n\n> ";
+      cin >> choice;
+
+      if (choice == "1") {
+         cout << "\n";
+         wait_timer();
+         mtn_airtime();
+      }
+      else if (choice == "2") {
+         cout << "\n";
+         wait_timer();
+         airtel_airtime();
+      }
+      else {
+         wait_timer();
+         cout << "\nWrong choice!\n\n";
+      }
+   }
+   else {
+      wait_timer();
+      cout << "\nUNKNOWN APPLICATION!\n\n";
+   }
+}
 
 void mtn_prompt(){
 system("clear");
@@ -274,7 +636,7 @@ void mtn_next(){
        }
 
  else if(choice=="10"){
-      cout<<"\nMTN reserved Macye Macye\n\n0.Back\n99.choice\n\n> ";
+      cout<<"\nMTN reserved Macye Macye\n\n0.Back\n99.Menu\n\n> ";
       cin>>choice;
       system("clear");
       if(choice=="0")
@@ -423,7 +785,9 @@ void mtn_pin(){
    string pin;
    string confirm_pin;
    cout<<"\nEnter your MoMo Pin to confirm transaction.\n\n> ";
-   cin>>pin;  
+      cin>>pin;  
+      
+  
     system("clear");
        wait_timer();
 
@@ -434,10 +798,13 @@ if(pin.length() !=5 )
       
       cout<<"\n\nPin must be FIVE digit! try again!\n\n";
       mtn_pin();
+       
    }
+   
+
    cout<<"\nConfirm Pin\n\n>";
-   cin>>confirm_pin;
-   system("clear");
+  cin>>confirm_pin;
+    system("clear");
        wait_timer();
 
 
@@ -447,13 +814,10 @@ if(pin.length() !=5 )
        wait_timer();
       cout<<"\n\nPIN did not match! try agin\n\n";
       mtn_pin();
-      
-    
-      
-   }
+   
+       }
 
-
-   else if(confirm_pin == pin && pin.length() ==5){
+  else  if(confirm_pin == pin && pin.length() ==5){
 
        system("clear");
        wait_timer();
@@ -462,6 +826,8 @@ if(pin.length() !=5 )
    }
   
 }
+
+
 
 void airtel_prompt(){
    int count=0;
@@ -573,8 +939,6 @@ void airtel_airtime(){
 
 int main(){
    Network_providers open;
-   open.timer();
-   open.Action();
-   
+     open.Sim();
   
 }
