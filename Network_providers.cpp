@@ -759,20 +759,37 @@ void mtn_send_money() {
 }
 
 
-
-void mtn_recipient(){
-    wait_timer();
+void mtn_recipient() {
+  
+    
    cout << "\nEnter recipient 07*******\n\n> ";
         cin >> number;
-         system("clear");
-         wait_timer();
-         if (number.length() != 10 || (number.substr(0, 3) != "078" && number.substr(0, 3) != "079")){
+         bool all_digits = true;
+    bool has_letters = false;
+    for (char c : number) {
+        if (!isdigit(c)) {
+            all_digits = false;
+            if (isalpha(c)) {
+               has_letters = true;
+            }
+        }
+    }
+     if (has_letters) {
+       system("clear");
+       wait_timer();  
+        cout << "\nError: Input contains letters! ("<<number<<") " <<put_time(localTime, "%H:%M:%S")<<".\n\n"<< endl;
+        mtn_recipient();
+    }
+        
+        else if (number.length() != 10 || (number.substr(0, 3) != "078" && number.substr(0, 3) != "079")){
+             system("clear");
              wait_timer();
             cout << "\nRecipient not found!\n" << endl; 
             mtn_recipient();
         
         }
 }
+       
 
 
 
@@ -830,15 +847,26 @@ void MoMo_amount() {
 void mtn_pin(){
    string pin;
    string confirm_pin;
-    wait_timer();
    cout<<"\nEnter your MoMo Pin to confirm transaction.\n\n> ";
       cin>>pin;  
-      
-  
-    system("clear");
+     bool all_digits = true;
+      bool has_letters = false;
+    for (char c : pin) {
+        if (!isdigit(c)) {
+            all_digits = false;
+             if (isalpha(c)) {
+               has_letters = true;
+            }
+        }
+    }
+     if (has_letters){
+       system("clear");
        wait_timer();
+       cout<<"\n\nPin must only be FIVE digit! try again!\n\n";
+       mtn_pin(); 
+     }
 
-if(pin.length() !=5 )
+ else  if(pin.length() !=5 )
    { 
       system("clear");
        wait_timer();
@@ -848,27 +876,35 @@ if(pin.length() !=5 )
        
    }
    
+ system("clear");
  wait_timer();
    cout<<"\nConfirm Pin\n\n>";
   cin>>confirm_pin;
     system("clear");
        wait_timer();
 
-
-   if(confirm_pin.length() !=5)
+ 
+    if(confirm_pin.length() !=5)
    { 
       system("clear");
        wait_timer();
-      cout<<"\n\nPIN did not match! try agin\n\n";
+      cout<<"\n\nConfirm Pin must be 5 digits!\n\n";
       mtn_pin();
    
        }
+       else if(confirm_pin !=pin)
+       {
+          system("clear");
+           wait_timer();
+         cout<<"\n Pin did not match. try again!\n\n";
+         mtn_pin();
+       }
+       
 
   else  if(confirm_pin == pin && pin.length() ==5){
 
        system("clear");
        wait_timer();
-
       cout<<"\n\n   Money of "<<amount<<"FRW. Transferd succefully at: (" << currentTime <<"). fee was "<<fee<<"FRW. Your new balance is "<<MoMo_account<<"FRW.Thank you for using MTN.\n\n"; 
    }
   
@@ -1016,6 +1052,6 @@ void airtel_airtime(){
 int main(){
    Network_providers open;
    system("clear");
-     open.Sim();
+     open.mtn_send_money();
   
 }
