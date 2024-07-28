@@ -636,7 +636,7 @@ void mtn_next(){
     wait_timer();
      if(choice=="8"){
        wait_timer();
-      cout<<"\nMTN reserved MoMo Paye\n\n0.Back\n99.choice\n\n> ";
+      cout<<"\nMTN reserved MoMo Paye\n\n0.Back\n99.Menu\n\n> ";
       cin>>choice;
       if(choice=="0")
       {
@@ -656,7 +656,7 @@ void mtn_next(){
    } 
     else if(choice=="99"){
         wait_timer();
-      cout<<"\nMTN reserved Insurance\n\n0.Back\n99.choice\n\n> ";
+      cout<<"\nMTN reserved Insurance\n\n0.Back\n99.Menu\n\n> ";
       cin>>choice;
      system("clear");
       if(choice=="0")
@@ -1052,6 +1052,6 @@ void airtel_airtime(){
 int main(){
    Network_providers open;
    system("clear");
-     open.mtn_send_money();
+     open.Sim();
   
 }
