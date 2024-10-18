@@ -20,7 +20,7 @@ body {
 
 img {
     max-width: 100%;
-    height: auto;
+    height: 60vh;
     justify-content: center;
 }
 
@@ -30,6 +30,7 @@ img {
     button {
         position: static;
         margin: 10px 0;
+       
     }
 
 header {
@@ -76,6 +77,8 @@ color:white;
     text-align: center;
     justify-content: center;
     background-color:rgb(11, 19, 46);
+    overflow-x: auto;
+    scrollbar-width: none;
 }
 
 .icon a {
@@ -110,7 +113,7 @@ color:white;
     color: aliceblue;
     text-shadow: 2px 2px 5px;
     position: absolute;
-    margin-left: 3.8em;
+    margin-left: 5.8em;
     animation:our 5s ease-in-out 1s forwards;
     animation-iteration-count: infinite;
 }
@@ -202,26 +205,25 @@ summary{
     margin-top: -3.3em;
 }
 
-.proud {
-    
-    margin:0 auto;
-    text-align: center;
+.proud{
+ text-align: center;
  justify-content: center;
  margin-bottom: -1.43em;
  background-color:rgb(11, 19, 46);
+
  
 }
 
-.proud b {
-    margin:0 auto;
-    margin-top:1em;
-        background-color:rgb(11, 19, 46);
+.proud-word{
+    margin-left: 19em;
+    margin-top:3em;
+    background-color:rgba(11, 19, 46, 0.432);
     position: absolute;
     white-space: pre-wrap;
+    font-size: large;
     color:#fff;
     justify-content: center;
-    width: 300px;
-    margin-left: 1.5em;
+    width: 400px;
     padding-bottom:0.3em;
 }
 
@@ -328,6 +330,10 @@ button a:hover{
     transition: 1s;
     
 }
+button:focus{
+    border-radius: 20px;
+
+}
 audio{
     width: 1.2em;
     height: 1em;
@@ -339,7 +345,7 @@ audio:hover{
     transform: scale(1.6);
     justify-content: center;
 }
-@media (max-width:768px) {
+@media (max-width:720px) {
     .icon a{
         margin: 1em;
     }
@@ -349,5 +355,28 @@ audio:hover{
     .food{
         flex-direction: column;
     }
+
+    img{
+        height: 34vh;
+    }
+
+    body{
+        margin: 1em ;
+    }
+
+    .welcome h1{
+        background-color: rgb(6, 6, 99);
+        font-size: small;
+        margin-left: 21em;
+    }
+
+    .proud-word{
+        margin-top:8em;
+        margin-left: 2em;
+        background-color: rgba(0, 0, 255, 0.233);
+        border-radius: 5px;
+        font-weight: bolder;
+    }
     
 }
+
