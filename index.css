@@ -359,6 +359,9 @@ audio:hover{
     body{
         margin: 1em ;
     }
+    header{
+        font-size: small;
+    }
 
     .welcome h1{
         left: -6em;
@@ -391,9 +394,11 @@ audio:hover{
     }
 
     .proud-word{
-        width: 150px;
+        width: 200px;
         white-space: wrap;
         margin: 1em;
+        margin-left: 4em;
+        border-radius: 10px;
     }
     body{
         margin: 1em;
@@ -415,6 +420,9 @@ audio:hover{
 
     .table{
         margin-right: 3em;
+    }
+    header{
+        font-size: small;
     }
 }
 
