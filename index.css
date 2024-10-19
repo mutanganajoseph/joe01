@@ -1,6 +1,5 @@
 
 html{
-    margin:0 auto;
     padding: 0;
     scroll-behavior: smooth;
     font-size: medium;
@@ -11,13 +10,14 @@ html{
 
 body {
     background-color:rgb(11, 19, 46);
-    margin:0 auto;
+    margin: 0 auto;
     padding: 0;
     min-height: 100vh;
     max-width: 800px;
     box-sizing: border-box;
     border-left: #8f58f5 solid 0.2px;
     border-right: #8f58f5 solid 0.2px;
+    position:static;
 }
 
 img {
@@ -79,6 +79,7 @@ header {
     text-align: center;
     justify-content: center;
     background-color:rgb(11, 19, 46);
+   
 }
 
 .icon a {
@@ -91,6 +92,9 @@ header {
     text-decoration: none;
     display: inline-block; 
     white-space: nowrap;
+    font-size: large;
+    margin-left: 5em;
+    margin-bottom: 0.4em;
 }
 
 
@@ -275,31 +279,30 @@ summary{
     margin-left: 2em;
     list-style-type: none; 
     margin-bottom: 2em; 
+   
+    
 }
 .contact h1{
     text-transform: uppercase;
     font-weight: bolder;
-    /*text-shadow: 3px 3px 5px green;*/
 }
 .contact li{
     margin-top:1em;
+    display: inline-block;
+    margin: 1em;
+   
 }
 .contact a{
     color: aliceblue;
     text-decoration: none;
     transition: 0.5s;
-   
     font-size: medium;
     text-transform: none;
     margin: 2px;
-    
-}
-.contact li a:focus{
-    padding: 7px;
-    border-radius: 12px;
    
     
 }
+
 
 .copy{
     padding-bottom: 1em;
@@ -335,16 +338,15 @@ button :focus{
 
 }
 audio{
-    width: 1.2em;
-    height: 1em;
-    transition: ease-in-out 2s;
     margin-left: 1em;
+    background-color:#d7eedb;
+    border-radius: 50px;
+    width: 1.2em;
+    height: 1.2em
+    
    
 }
-audio:hover{
-    transform: scale(1.6);
-    justify-content: center;
-}
+
 @media (max-width:768px) {
     .icon a{
         margin: 1em;
@@ -354,13 +356,42 @@ audio:hover{
         flex-direction: column;
     }
 
+    .food_summary{
+        text-align: center;
+        color: #8f58f5;
+        margin-left: 2em;
+        white-space: wrap;
+    }
+
+    .quote {
+        text-align: center;
+
+        
+    }
+
     img{
         height:68vh ;
     }
 
-    body{
-        margin: 1em ;
+    .contact{
+        margin-left: -1em;
     }
+
+    .contact h1{
+        font-size: medium;
+        margin-left: 2em;
+    }
+    .contact li{
+        margin: 1px;
+        margin-left: em;
+    }
+
+    .contact a{
+        font-size: small;
+        margin: 5px;
+    }
+
+
     header{
         font-size: small;
     }
@@ -391,8 +422,12 @@ audio:hover{
         height: 56%;
     }
 
-    .icon{
+    .icon a{
         font-size: 0.9em;
+    }
+
+    .icon a:first-child{
+        margin-left: 1.4em;
     }
 
     .proud-word{
@@ -405,6 +440,7 @@ audio:hover{
     .quote{
         margin-top: -4em;
         margin-left: 1em;
+       
     }
 
     .about{
