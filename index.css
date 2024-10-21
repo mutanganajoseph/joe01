@@ -15,8 +15,8 @@ body {
     min-height: 100vh;
     max-width: 800px;
     box-sizing: border-box;
-    border-left: #8f58f5 solid 0.2px;
-    border-right: #8f58f5 solid 0.2px;
+    border: #8f58f5 solid 0.2px;
+   
     position:static;
 }
 
