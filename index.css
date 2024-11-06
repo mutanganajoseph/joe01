@@ -103,8 +103,9 @@ header {
     right: 1em;
     color: #fff;
     top: 16px;
+    font-size: xx-large;
     border-radius: 2px;
-    width: 5%;
+    width:   9%;
     display: none;
     padding: 5px 0;
     text-align: center;
