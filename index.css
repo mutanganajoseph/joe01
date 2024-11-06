@@ -98,7 +98,18 @@ header {
 }
 
 
-
+.bars{
+    position: absolute;
+    right: 1em;
+    color: #fff;
+    top: 16px;
+    border-radius: 2px;
+    width: 5%;
+    display: none;
+    padding: 5px 0;
+    text-align: center;
+    border: 1px solid;
+}
 
 .welcome {
 
@@ -348,6 +359,13 @@ audio{
 }
 
 @media (max-width:768px) {
+     
+    .bars{
+        display: block;
+    }
+    .icon{
+        display: none;
+    }
     .icon a{
         margin: 1em;
     }
