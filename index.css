@@ -72,12 +72,16 @@ header {
     }
 }
 
+.menu{
+   position: relative;
+   margin: auto;
+}
+
 .icon {
     position: sticky;
     top: 0;
     z-index: 1; 
     text-align: center;
-    justify-content: center;
     background-color:rgb(11, 19, 46);
    
 }
@@ -91,7 +95,6 @@ header {
     margin: 2em;
     text-decoration: none;
     display: inline-block; 
-    white-space: nowrap;
     font-size: large;
     margin-left: 5em;
     margin-bottom: 0.4em;
@@ -100,14 +103,14 @@ header {
 
 .bars{
     position: absolute;
-    right: 1em;
+    right: 0.2em;
     color: #fff;
     top: 16px;
     font-size: xx-large;
     border-radius: 2px;
-    width:   9%;
-    display: none;
-    padding: 5px 0;
+    width:9%;
+    height: auto;
+    display: none; 
     text-align: center;
     border: 1px solid;
 }
@@ -364,11 +367,17 @@ audio{
     .bars{
         display: block;
     }
+   
     .icon{
         display: none;
+        
     }
     .icon a{
         margin: 1em;
+    }
+
+    .icon a:first-child{
+        margin-left: 3em;
     }
     
     .food{
@@ -443,10 +452,11 @@ audio{
 
     .icon a{
         font-size: 0.9em;
+       
     }
 
     .icon a:first-child{
-        margin-left: 1.4em;
+        margin-left: 3em;
     }
 
     .proud-word{
